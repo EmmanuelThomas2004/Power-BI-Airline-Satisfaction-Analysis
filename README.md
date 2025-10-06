@@ -58,7 +58,7 @@ The work included:
 ### 4️⃣ Passenger Demographics  
 ![Dashboard 4: Demographics](https://github.com/EmmanuelThomas2004/Power-BI-Airline-Satisfaction-Analysis/blob/main/dashboard%204.png?raw=true)
 
-### 4.1️⃣ Demographics (Violin Plot Detail)  
+### 4.1️⃣ Passenger Demographics (Violin Plot Detail)  
 ![Dashboard 4.1: Demographic Detail](https://github.com/EmmanuelThomas2004/Power-BI-Airline-Satisfaction-Analysis/blob/main/dashboard%204.1.png?raw=true)
 
 ### 5️⃣ Loyalty Program Effectiveness  
@@ -78,4 +78,4 @@ The work included:
 - Identified main dissatisfaction drivers: weak Wi-Fi, delays, and low economy satisfaction  
 - Created **5 interactive dashboards** to explore patterns and trends  
 - Proposed improvements to raise satisfaction by focusing on Wi-Fi, service, and timeliness  
--
+
