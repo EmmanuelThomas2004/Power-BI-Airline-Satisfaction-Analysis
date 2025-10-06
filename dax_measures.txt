@@ -1,0 +1,67 @@
+## DAX Measures Showcase
+
+This section highlights the key DAX measures created to power the dashboard's analytics.
+
+#### Core KPIs
+```dax
+Total Passengers = COUNT(flight[id])
+
+Satisfaction Rate % = 
+VAR SatisfiedPassengers =
+    CALCULATE ( [Total Passengers], 'flight'[satisfaction] = "satisfied" )
+VAR TotalEvaluated =
+    CALCULATE ( [Total Passengers], 'flight'[satisfaction] <> "" )
+RETURN
+    DIVIDE ( SatisfiedPassengers, TotalEvaluated )
+
+Average Departure Delay = AVERAGE(flight[Departure Delay in Minutes])
+Average Arrival Delay = AVERAGE(flight[Arrival Delay in Minutes])
+Average Flight Distance = AVERAGE(flight[Flight Distance])
+```
+
+#### Service Rating Calculations
+```dax
+Avg Overall Service Rating = 
+AVERAGEX(
+    'flight',
+    (
+        'flight'[Inflight wifi service] +
+        'flight'[Departure/Arrival time convenient] +
+        'flight'[Ease of Online booking] +
+        'flight'[Gate location] +
+        'flight'[Food and drink] +
+        'flight'[Online boarding] +
+        'flight'[Seat comfort] +
+        'flight'[Inflight entertainment] +
+        'flight'[On-board service] +
+        'flight'[Leg room service] +
+        'flight'[Baggage handling] +
+        'flight'[Checkin service] +
+        'flight'[Inflight service] +
+        'flight'[Cleanliness]
+    ) / 14
+)
+```
+
+#### Comparative & Segmented Measures
+```dax
+-- Passenger Counts by Age Group
+Youth_Passengers = COUNTROWS(FILTER(flight, flight[Age Group] = "Youth"))
+Adult_Passengers = COUNTROWS(FILTER(flight, flight[Age Group] = "Adult"))
+Senior_Passengers = COUNTROWS(FILTER(flight, flight[Age Group] = "Senior"))
+
+-- Satisfaction Counts
+Satisfied Passengers = CALCULATE([Total Passengers], flight[satisfaction] = "satisfied")
+Dissatisfied Passengers = CALCULATE([Total Passengers], flight[satisfaction] = "neutral or dissatisfied")
+
+-- Satisfaction Rate by Class
+Satisfaction % - Business = CALCULATE([Satisfaction Rate %], flight[Class] = "Business")
+Satisfaction % - Eco = CALCULATE([Satisfaction Rate %], flight[Class] = "Eco")
+
+-- Satisfaction Rate by Loyalty
+Satisfaction % - Loyal Customers = CALCULATE([Satisfaction Rate %], flight[Customer Type] = "Loyal Customer")
+Satisfaction % - Disloyal Customers = CALCULATE([Satisfaction Rate %], flight[Customer Type] = "disloyal Customer")
+
+-- Travel Type Rating Gap
+Travel Rating Gap = [Avg Rating - Business] - [Avg Rating - Personal]
+```
