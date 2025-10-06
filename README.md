@@ -66,11 +66,11 @@ The work included:
 
 ---
 
-## 🛠️ Tools & Skills Used  
-- **Power BI / Power Query** – for data cleaning and transformation  
-- **DAX** – for building KPIs and calculated measures  
-- **Data Modeling & Visualization** – connecting and exploring data relationships  
-- **Storytelling with Data** – making dashboards that convey insights clearly  
+## Tools Used
+
+- **Power BI / Power Query:** For data cleaning, transformation, modeling, and interactive visualization.
+- **DAX (Data Analysis Expressions):** For creating all custom KPIs and calculated measures.
+    - **[View the complete DAX code here](dax_measures.txt)** 
 
 ---
 
